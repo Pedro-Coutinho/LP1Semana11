@@ -7,9 +7,9 @@ namespace GuessTheNumber
 
         public int Attempts {get; private set;}
 
-        public Controller(int number)
+        public Controller(Model model)
         {
-            this.number = number;
+            this.number = model.Number;
         }
 
         public void Run (IView view)
