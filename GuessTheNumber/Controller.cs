@@ -2,14 +2,11 @@ namespace GuessTheNumber
 {
     public class Controller
     {
-        private int number;
+        private Model model;
         private IView view;
-
-        public int Attempts {get; private set;}
-
         public Controller(Model model)
         {
-            this.number = model.Number;
+            this.model = model;
         }
 
         public void Run (IView view)
@@ -21,16 +18,16 @@ namespace GuessTheNumber
             do
             {
                 guess = view.GetInput();
-                Attempts++;
+                model.IncreaseAttempts();
 
-                if(guess < number)
+                if(guess < model.Number)
                     view.ToLow();
-                else if(guess > number)
+                else if(guess > model.Number)
                     view.ToHigh();
                 else
                     break;
             }
-            while(guess != number);
+            while(guess != model.Number);
 
             view.End();
         }

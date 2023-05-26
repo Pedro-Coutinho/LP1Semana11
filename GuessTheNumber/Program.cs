@@ -10,7 +10,7 @@ namespace GuessTheNumber
 
             Controller controller = new Controller(model);
 
-            IView view = new ConsoleView(controller);
+            IView view = new ConsoleView(controller, model);
 
             controller.Run(view);
         }

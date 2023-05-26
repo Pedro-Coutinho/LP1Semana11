@@ -5,10 +5,12 @@ namespace GuessTheNumber
     public class ConsoleView : IView
     {
         private readonly Controller controller;
+        private readonly Model model;
 
-        public ConsoleView(Controller controller)
+        public ConsoleView(Controller controller, Model model)
         {
             this.controller = controller;
+            this.model = model;
         }
 
         public void Intro()
@@ -47,7 +49,7 @@ namespace GuessTheNumber
         {
             Console.WriteLine(
                 "Congratulations! You guessed the number correctly!");
-            Console.WriteLine("Number of attempts: " + controller.Attempts);
+            Console.WriteLine("Number of attempts: " + model.Attempts);
             Console.WriteLine("Thank you for playing Guess the Number!");
         }
     }
